@@ -8,8 +8,7 @@ def main():
     2. Create Weather Trend
     3. Exit
     
-    Enter a choice: 
-    """)
+    Enter a choice: """)
 
     if choose == "1":
         print("_____  Weather Plot _______________________________")
