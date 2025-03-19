@@ -1,4 +1,3 @@
-# TODO: Create a choice for the user to pass location, dates, and what type of graph they want
 from pointplotter import pointplotter
 from trendplotter import trendplotter
 
