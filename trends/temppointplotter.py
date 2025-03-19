@@ -7,7 +7,7 @@ import requests
 import requests_cache
 from retry_requests import retry
 
-def pointplotter():
+def temppointplotter():
     # Setup the Open-Meteo API client with cache and retry on error
     cache_session = requests_cache.CachedSession('.cache', expire_after = -1)
     retry_session = retry(cache_session, retries = 5, backoff_factor = 0.2)
