@@ -8,6 +8,8 @@ A CLI app that fetches archived weather data and analyzes temperature, humidity,
 `python main.py`
 
 ## Weather Plots
+`Use Weather Plots for more fine-tuned data plotting across specific date ranges up to a month (31 days) between start and end dates`
 ![WeatherPlotGraph.png](WeatherPlotGraph.png)
 ## Weather Trends
+`Use Weather Trends for wider date ranges`
 ![WeatherTrendGraph.png](WeatherTrendGraph.png)
