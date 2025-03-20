@@ -91,7 +91,7 @@ def temppointplotter():
     # Plot the temperature data
     plt.figure(figsize=(12, 7))
     plt.plot(hourly_dataframe['date'], hourly_dataframe['temperature_2m'], color='tab:red')
-    plt.title(f'Hourly Temperature Data', fontsize=16)
+    plt.title(f'Hourly Temperature Data for {city}, {state}', fontsize=16)
     plt.xlabel('Date', fontsize=12)
     plt.ylabel('Temperature (°F)', fontsize=12)
     plt.grid(True, alpha=0.3)
