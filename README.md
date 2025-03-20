@@ -8,8 +8,6 @@ A CLI/web app that fetches archived weather data to analyze temperature, humidit
 `python main.py`
 
 ## Weather Plots
-![WeatherPlotPrompt.png](WeatherPlotPrompt.png)
 ![WeatherPlotGraph.png](WeatherPlotGraph.png)
 ## Weather Trends
-![WeatherTrendPrompt.png](WeatherTrendPrompt.png)
 ![WeatherTrendGraph.png](WeatherTrendGraph.png)
