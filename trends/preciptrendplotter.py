@@ -7,6 +7,12 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import numpy as np
 from scipy import signal
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+authkey = os.getenv("APIKEY")
 
 def preciptrendplotter():
     # Setup the Open-Meteo API client with cache and retry on error
@@ -32,7 +38,7 @@ def preciptrendplotter():
 
     req_url = f"{base_url}/?{requests.utils.unquote(requests.compat.urlencode(params))}"
     try:
-        resp = requests.get(req_url)
+        resp = requests.get(req_url + f"&auth={authkey}")
         resp.raise_for_status()
     except requests.RequestException as err:
         print("Error:", err)
@@ -52,7 +58,8 @@ def preciptrendplotter():
         "end_date": edate,
         "hourly": "rain",
         "temperature_unit": "fahrenheit",
-        "wind_speed_unit": "mph"
+        "wind_speed_unit": "mph",
+	    "precipitation_unit": "inch"
     }
     responses = openmeteo.weather_api(url, params=params)
 
@@ -91,7 +98,7 @@ def preciptrendplotter():
     # Show the trend line only (no individual points)
     plt.plot(daily_data['date'], temp_trend, color='tab:blue', linewidth=3, label='Precipitation Trend')
 
-    plt.title(f'Precipitation Trend for {city} {state}', fontsize=16)
+    plt.title(f'Precipitation Trend for {city}, {state}', fontsize=16)
     plt.xlabel('Date', fontsize=12)
     plt.ylabel('Precipitation (in)', fontsize=12)
     plt.grid(True, alpha=0.3)
