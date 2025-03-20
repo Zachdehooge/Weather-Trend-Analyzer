@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 
 import matplotlib.pyplot as plt
@@ -6,6 +7,12 @@ import pandas as pd
 import requests
 import requests_cache
 from retry_requests import retry
+from dotenv import load_dotenv
+
+load_dotenv()
+
+authkey = os.getenv("APIKEY")
+
 
 def temppointplotter():
     # Setup the Open-Meteo API client with cache and retry on error
@@ -29,7 +36,7 @@ def temppointplotter():
 
     if days_difference > 31:
         print("Date is out of range")
-        pointplotter()
+        temppointplotter()
 
     base_url = "https://geocode.xyz"
     params = {
@@ -40,7 +47,7 @@ def temppointplotter():
 
     req_url = f"{base_url}/?{requests.utils.unquote(requests.compat.urlencode(params))}"
     try:
-        resp = requests.get(req_url)
+        resp = requests.get(req_url + f"&auth={authkey}")
         resp.raise_for_status()
     except requests.RequestException as err:
         print("Error:", err)

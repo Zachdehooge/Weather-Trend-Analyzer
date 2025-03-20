@@ -1,3 +1,5 @@
+import os
+
 import openmeteo_requests
 import requests
 import requests_cache
@@ -7,6 +9,11 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import numpy as np
 from scipy import signal
+from dotenv import load_dotenv
+
+load_dotenv()
+
+authkey = os.getenv("APIKEY")
 
 def temptrendplotter():
     # Setup the Open-Meteo API client with cache and retry on error
@@ -32,7 +39,7 @@ def temptrendplotter():
 
     req_url = f"{base_url}/?{requests.utils.unquote(requests.compat.urlencode(params))}"
     try:
-        resp = requests.get(req_url)
+        resp = requests.get(req_url + f"&auth={authkey}")
         resp.raise_for_status()
     except requests.RequestException as err:
         print("Error:", err)
