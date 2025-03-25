@@ -4,6 +4,7 @@ from trends.precippointplotter import precippointplotter
 from trends.preciptrendplotter import preciptrendplotter
 from trends.temppointplotter import temppointplotter
 from trends.temptrendplotter import temptrendplotter
+from outlooks.outlookarchives import outlookarchives
 from rich.console import Console
 
 console = Console()
@@ -16,7 +17,8 @@ def main():
     console.print("4. Create Precipitation Trend", style="bold blue")
     console.print("5. Create Dew Point Plot", style="bold green")
     console.print("6. Create Dew Point Trend", style="bold green")
-    console.print("7. Exit", style="bold yellow")
+    console.print("7. Create Convective Outlook Table", style="bold yellow")
+    console.print("8. Exit", style="bold cyan")
 
     choose = input("Enter a choice: ")
 
@@ -45,6 +47,10 @@ def main():
         dewtrendplotter()
         main()
     if choose == "7":
+        console.print("_____ Convective Outlook Table _______________________________", style="bold yellow")
+        outlookarchives()
+        main()
+    if choose == "8":
         exit()
 
 if __name__ == "__main__":
