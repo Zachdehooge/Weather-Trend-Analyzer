@@ -155,7 +155,7 @@ def outlookarchives():
             print("\nFiltered Outlooks:")
             print(tabulate(
                 display_data,
-                headers=['Threshold', 'Category', 'UTC Issue Date', 'UTC Expire Date', 'UTC Product Issue Date'],
+                headers=['Threshold', 'Category', 'Local Issue Date', 'Local Expire Date', 'Local Product Issue Date'],
                 tablefmt='fancy_grid'
             ))
 
