@@ -50,6 +50,7 @@ def main():
         console.print("_____ Convective Outlook Table _______________________________", style="bold yellow")
         outlookarchives()
         main()
+
     if choose == "8":
         exit()
 

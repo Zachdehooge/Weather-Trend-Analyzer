@@ -140,7 +140,6 @@ def outlookarchives():
         # Prepare data for display
         display_data = [
             [
-                outlook['day'],
                 outlook['threshold'],
                 outlook['category'],
                 format_utc_date(outlook['utc_issue']),
@@ -152,6 +151,7 @@ def outlookarchives():
 
         # Print results
         if display_data:
+
             print("\nFiltered Outlooks:")
             print(tabulate(
                 display_data,
